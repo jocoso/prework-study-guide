@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centered Cards</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: linear-gradient(90deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    .container {
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .cards-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .card {
+    border: 1px solid #000000;
+    border-radius: 40px;
+    padding: 20px;
+    margin: 5px; /* Decreased margin */
+    max-width: 300px;
+    text-align: center;
+    flex: 1; /* Equal width for all cards */
+    color: #000000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+
+    .btn {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .header, .footer {
+        background-image: linear-gradient(90deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        width: 100%; /* Make header and footer full width */
+    }
+    .box {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 10px;
+        max-width: 300px;
+        text-align: center;
+    }
+    .completed-courses {
+        list-style-type: none;
+        padding:0px;
+    }
+    
+</style>
+</head>
+<body>
+
+<header class="header">
+    <h1>Prework Study Guide</h1>
+</header>
+
+<div class="container">
+    <div class="cards-container">
+        <div class="card" data-course="HTML">
+            <h2>HTML</h2>
+            <p>HTML is the standard markup language for creating web pages and web applications.</p>
+            <button class="btn" onclick="addToCompletedCourses('HTML')">View More</button>
+        </div>
+        <div class="card" data-course="CSS">
+            <h2>CSS</h2>
+            <p>CSS is used for describing the presentation of a document written in HTML.</p>
+            <button class="btn" onclick="addToCompletedCourses('CSS')">View More</button>
+        </div>
+        <div class="card" data-course="GIT">
+            <h2>GIT</h2>
+            <p>Git is a distributed version control system for tracking changes in source code during software development.</p>
+            <button class="btn" onclick="addToCompletedCourses('GIT')">View More</button>
+        </div>
+        <div class="card" data-course="JavaScript">
+            <h2>JavaScript</h2>
+            <p>JavaScript is a programming language that enables you to create dynamically updating content, control multimedia, animate images, and much more.</p>
+            <button class="btn" onclick="addToCompletedCourses('JavaScript')">View More</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <h3>Completed Courses</h3>
+        <ul class="completed-courses" id="completedCoursesList"></ul>
+    </div>
+
+    <div class="card">
+        <h3>Recommended Order of Learning</h3>
+        <ol class="recommended-order">
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>GIT</li>
+        </ol>
+    </div>
+</div>
+
+
+<script>
+    function addToCompletedCourses(courseName) {
+        var completedCoursesList = document.getElementById('completedCoursesList');
+        var listItem = document.createElement('li');
+        listItem.textContent = courseName;
+        completedCoursesList.appendChild(listItem);
+    }
+</script>
+
+<footer class="footer">
+    <p>&copy; 2024 Prework Study Guide</p>
+</footer>
+
+</body>
+</html>
